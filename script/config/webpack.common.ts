@@ -70,6 +70,16 @@ export const commonConfig: Configuration = {
           filter: (resourcePath) =>
             resourcePath != resolvePath(projectRoot, "./public/index.html"),
         },
+        {
+          context: resolvePath(projectRoot, "./"),
+          from: resolvePath(projectRoot, "./assets"),
+          to: resolvePath(projectRoot, "./dist/assets"),
+        },
+        {
+          context: resolvePath(projectRoot, "./"),
+          from: resolvePath(projectRoot, "./manifest.json"),
+          to: resolvePath(projectRoot, "./dist"),
+        },
       ],
     }),
   ],

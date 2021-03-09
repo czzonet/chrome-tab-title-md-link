@@ -5,7 +5,7 @@
   "manifest_version": 3,
   "permissions": ["storage", "tabs"],
   "action": {
-    "default_popup": "/dist/index.html",
+    "default_popup": "/index.html",
     "default_icons": {
       "16": "/assets/icon.png",
       "32": "/assets/icon.png",
