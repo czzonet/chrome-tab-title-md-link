@@ -1,7 +1,6 @@
 import { Configuration } from "webpack";
 import { projectName, projectRoot, resolvePath } from "../env";
 import webpackBar from "webpackbar";
-import FriendlyErrorsWebpackPlugin from "friendly-errors-webpack-plugin";
 import webpackBuildNotifier from "webpack-build-notifier";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
@@ -28,25 +27,8 @@ export const commonConfig: Configuration = {
         exclude: /node_modules/,
       },
       {
-        test: /\.scss$/,
-        use: [
-          "style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              modules: false,
-              sourceMap: true,
-              importLoaders: 1,
-            },
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              // 中间每个 loader 都要开启 sourcemap，才能生成正确的 soucemap
-              sourceMap: true,
-            },
-          },
-        ],
+        test: /\.svg$/,
+        use: ["file-loader"],
       },
     ],
   },
@@ -55,7 +37,6 @@ export const commonConfig: Configuration = {
       name: "react-template",
       color: "#61dafb",
     }),
-    new FriendlyErrorsWebpackPlugin({}),
     new webpackBuildNotifier(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
